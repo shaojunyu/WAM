@@ -16,10 +16,12 @@
 ### 1.1 关于开发环境的一些约定（以我的开发环境为例，类似的环境也OK）
 
  * 操作系统： Ubuntu Server 14.04 (Why linux，why not Windows? 我曾经也一直在问这个问题，现在我放弃纠结了...)
- * 编译器：gcc（gcc编译器默认不在ubuntu的发行包中，需要手动安装，执行这个命令即可：``` $ sudo apt-get install gcc ```）
+ * 编译器：gcc（gcc编译器默认不在ubuntu的发行包中，需要手动安装，执行这个命令即可：
+ ` $ sudo apt-get install gcc `）
  * make编译（可选）
  * 如何获取代码：
- 　　如果你了解git版本管理工具，可以在linux中直接使用git命令行获取代码，执行`$ git clone https://github.com/shaojunyu/WAM.git` 即可。（git软件包默认页不在ubuntu的发行包中，需要手动安装 `$ sudo apt-get install git`）
+ 　　如果你了解git版本管理工具，可以在linux中直接使用git命令行获取代码，执行
+ `$ git clone https://github.com/shaojunyu/WAM.git` 即可。（git软件包默认页不在ubuntu的发行包中，需要手动安装 `$ sudo apt-get install git`）
 　　如果不喜欢git，也可以直接下载。点击`Download ZIP`就可以了![][2]，会直接下载一个压缩包，解压之后就可以看到文件了，代码位于`code`文件夹中.
 [2]:https://raw.githubusercontent.com/shaojunyu/WAM/c/image/download.png
  * 文件目录结构,如下图所示。在code文件件中，有7个代码文件，一个makefile编译规则文件，外加两个数据文件夹`Testing` 和 `Training`,分别用于存储测试数据文件和训练数据文件，可以修改代码，但请勿随意修改目录结构！![][1]
