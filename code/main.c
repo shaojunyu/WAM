@@ -20,7 +20,7 @@ int main(int argc, char const *argv[])
     getcwd(path, sizeof(path));
     strcat(path, "/Training/");
 
-    //data
+    //短序列 
     Short_seq front_short_seq;
     Short_seq backgroud_short_seq;
     SS_INIT(&front_short_seq);
@@ -107,7 +107,12 @@ int main(int argc, char const *argv[])
         tmp = tmp->next;
     }
     //获取最低分
-    printf("%f\n", score);
+    printf("for Training set, the lowest S(x) is %f\n", score);
+
+    float threshold;
+    printf("%s\n", "please input the threshold value of S(x): (Recommended value above 13.3)");
+    scanf("%f",&threshold);
+    printf("threshold value:%f, now caculating the Testing set\n", threshold);
 
     //获取测试集数据
     memset(path, '\0', 100);
@@ -138,8 +143,7 @@ int main(int argc, char const *argv[])
             //puts(file_path);
             file_to_short_seq(fp, &actual_seq, NULL);  //function in file.h
             fseek (fp, 0, SEEK_SET);
-            predict_seq(fp, 12, &predicted_seq, front_hashTable, front_short_seq_num, background_hashTable, backgroud_short_seq_num);
-            //puts(ep->d_name);
+            predict_seq(fp, threshold, &predicted_seq, front_hashTable, front_short_seq_num, background_hashTable, backgroud_short_seq_num);
             fclose(fp);
         } //end while
         free(ep);
@@ -192,8 +196,9 @@ int main(int argc, char const *argv[])
         predicted_count++;
         tmp = tmp->next;
     }
-    printf("predicted_count: %d\n", predicted_count);
-    printf("Sn: %f\n", (float)TP/actual_count);
+    printf("actual count: %d\n",actual_count);
+    printf("predicted count: %d\n", predicted_count);
+    printf("Sn: %f\n", ((float)TP/actual_count)>1 ? 1 : ((float)TP/actual_count));
     printf("Sp: %f\n", 1 - (float)(predicted_count-TP) / predicted_count);
 
 

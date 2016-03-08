@@ -6,4 +6,4 @@ DEPS = queue.h sequence.h file.h jwHash.h math.h
 	$(CC) -c -o $@ $< $(CFLAGS)
 
 WAM_bin : main.o jwHash.o
-	$(CC) -o WAM_bin main.o jwHash.o -I.
+	$(CC) -o WAM_Bin main.o jwHash.o -lm -I. 
