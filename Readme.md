@@ -123,5 +123,5 @@ PHP：让我们把敌人老死吧！
   
 
 ------
-> **Acknowledgements: Yang Xu,  Zhengyu Zhang,  Hongjun Li**
+> **Acknowledgements: Yang Xu,  Zhenyu Zhang,  Hongjun Li**
 
